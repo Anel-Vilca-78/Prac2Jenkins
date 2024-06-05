@@ -1,6 +1,6 @@
 FROM node:14
 WORKDIR /app
-COPY package ∗.json ./
+COPY *.json ./
 RUN npm install
 COPY . .
 EXPOSE 3000

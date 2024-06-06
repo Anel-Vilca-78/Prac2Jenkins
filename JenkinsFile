@@ -18,8 +18,12 @@ pipeline {
                 script {
                     docker.image(DOCKER_IMAGE).inside {
                         withEnv(["NPM_CONFIG_CACHE=/tmp/.npm"]) {
-                            sh 'npm install'
-                            sh 'npm test'
+                            sh '''
+                                mkdir -p /tmp/.npm
+                                chown -R $(id -u):$(id -g) /tmp/.npm
+                                npm install
+                                npm test
+                            '''
                         }
                     }
                 }

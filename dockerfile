@@ -5,4 +5,4 @@ RUN npm install
 RUN npm install -g mocha
 COPY . .
 EXPOSE 3000
-CMD [ "node", "index.js"]
+CMD [ "node", "test.js"]
